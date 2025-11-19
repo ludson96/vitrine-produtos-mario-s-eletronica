@@ -87,11 +87,15 @@
         <input type="file" id="product-image" accept="image/*" required>
         <button type="submit">Salvar Produto</button>
       </form>
-      <div id="product-list"></div>
-    </div>
-  </div>
+                  <div id="product-list"></div>
+                  <div id="pagination-controls">
+                      <button id="prev-page">&lt; Anterior</button>
+                      <span id="page-info"></span>
+                      <button id="next-page">Próxima &gt;</button>
+                  </div>
+              </div>  </div>
 
-  <script src="script.js"></script>
-</body>
-
+      <script src="db.js"></script>
+      <script src="script.js"></script>
+  </body>
 </html>
