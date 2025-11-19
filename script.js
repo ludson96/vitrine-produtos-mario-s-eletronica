@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const productForm = document.getElementById('product-form');
     const productIdInput = document.getElementById('product-id');
     const productNameInput = document.getElementById('product-name');
+    productNameInput.maxLength = 75;
     const productPriceInput = document.getElementById('product-price');
     const productImageInput = document.getElementById('product-image');
     const productList = document.getElementById('product-list');
