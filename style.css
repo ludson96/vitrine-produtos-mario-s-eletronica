@@ -1,11 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* MARIO'S ELETRONICA CSS */
 
+/* Importa a fonte Super Mario */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Paleta de Cores Super Mario */
+:root {
+    --mario-red: #E52521;
+    --mario-blue: #3D9DFF;
+    --mario-yellow: #FFD700;
+    --mario-green: #4CAF50;
+    --mario-brown: #8B4513;
+    --mario-white: #FFFFFF;
+    --mario-black: #000000;
+    --background-color: #5C94FC; /* Cor do céu do Mario */
+}
+
+/* Estilos gerais */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Press Start 2P', cursive;
     margin: 0;
     padding: 20px;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--mario-black);
+    background-image: url('https://i.pinimg.com/originals/a4/ac/3c/a4ac3c67c33658b16b553f13615b412a.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #app {
@@ -16,127 +36,214 @@ body {
     gap: 30px;
 }
 
-.horizontal-customization {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.customization-column {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.customization-column h3 {
-    font-size: 1.2em;
-    margin-bottom: 0;
-    color: #333;
-    border-bottom: 2px solid #1a73e8;
-    padding-bottom: 5px;
-}
-
-.horizontal-customization .form-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-
-.horizontal-customization h2 {
-    grid-column: 1 / -1;
-    margin-bottom: 0;
-}
-
-@media (min-width: 992px) {
-    #app {
-        grid-template-columns: 1fr;
-    }
-}
-
+/* Estilo do título */
 .title-container {
     display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
     align-items: center;
     margin-bottom: 20px;
+    position: relative; /* Necessário para posicionar o botão */
 }
 
 h1 {
-    margin: 0 auto;
+    color: var(--mario-yellow);
+    text-shadow: 3px 3px var(--mario-black);
+    font-size: 3em;
+    text-align: center;
+    margin: 0;
 }
 
+/* Botão Tela Cheia - Estilo Cogumelo */
 #fullscreen-btn {
-    padding: 12px 24px;
-    font-size: 1.2em;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    background-color: var(--mario-red);
+    color: var(--mario-white);
+    border: 3px solid var(--mario-black);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: transform 0.2s;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    position: absolute;
+    right: 0; /* Alinha o botão à direita */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
 }
 
 #fullscreen-btn:hover {
-    background-color: #155ab6;
-    transform: scale(1.05);
+    transform: scale(1.1) translateY(-50%);
 }
 
-h1, h2 {
-    color: #1a73e8;
+#fullscreen-btn svg {
+    display: none; /* Oculta o ícone SVG */
 }
 
-#carousel-container {
-    display: none; /* Hidden by default */
+#fullscreen-btn:before {
+    content: "🍄"; /* Ícone de cogumelo */
+    font-size: 2.5em;
+    line-height: 1;
 }
 
+#product-management,
+#customization {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
+    padding: 25px;
+    border-radius: 15px;
+    border: 5px solid var(--mario-brown);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    margin-top: 10px; /* Reduz o espaço superior */
+}
+
+h2 {
+    color: var(--mario-red);
+    text-shadow: 2px 2px var(--mario-black);
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+
+/* Formulário de Produto */
+#product-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+#product-form input {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    border: 3px solid var(--mario-black);
+    border-radius: 8px;
+    background-color: var(--mario-white);
+}
+
+#product-form button {
+    background-color: var(--mario-green);
+    color: var(--mario-white);
+    border: 3px solid var(--mario-black);
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    grid-column: 1 / -1; /* Ocupa as duas colunas */
+}
+
+#product-form button:hover {
+    background-color: #3e8e41; /* Verde mais escuro no hover */
+}
+
+/* Lista de Produtos */
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-list-card {
+    background-color: var(--mario-yellow);
+    border: 4px solid var(--mario-black);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+
+
+.product-list-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-list-card img {
+    max-width: 100%;
+    max-height: 100px; /* Reduzindo a altura máxima */
+    object-fit: contain; /* Para manter a proporção da imagem */
+    border: 3px solid var(--mario-black);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product-list-card-info h4 {
+    color: var(--mario-black);
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.product-list-card-info p {
+    color: var(--mario-red);
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Botões de Ação (Editar e Excluir) */
+.product-list-card-actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.product-list-card-actions button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 3px solid var(--mario-black);
+    color: var(--mario-white);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.product-list-card-actions .edit {
+    background-color: var(--mario-blue);
+}
+
+.product-list-card-actions .delete {
+    background-color: var(--mario-red);
+}
+
+.product-list-card-actions .save {
+    background-color: var(--mario-green);
+}
+
+.product-list-card-actions .cancel {
+    background-color: #888;
+}
+
+.product-list-card-actions button:hover {
+    transform: scale(1.1);
+}
+
+/* Carrossel em Tela Cheia */
 #carousel-container.fullscreen {
-    display: flex; /* Visible in fullscreen */
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1000;
-    background-color: rgba(0,0,0,0.9);
-    transition: background-color 0.5s, background-image 0.5s;
+    background-color: var(--background-color);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     align-items: center;
     justify-content: center;
-}
-
-#carousel-container.fullscreen .product-card img {
-    max-height: 80vh;
-}
-
-#carousel-container.fullscreen .product-card h3 {
-    font-size: 2.5em;
-}
-
-#carousel-container.fullscreen .product-card p {
-    font-size: 2em;
-}
-
-body.fullscreen-active #app > *:not(#carousel-container) {
-    display: none;
-}
-
-body.fullscreen-active .title-container {
-    display: none;
+    overflow: hidden;
 }
 
 #carousel {
     display: flex;
+    width: 100%;
+    height: 100%;
     transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
-
 .product-card {
     min-width: 100%;
     box-sizing: border-box;
@@ -148,188 +255,136 @@ body.fullscreen-active .title-container {
     justify-content: center;
     height: 100%;
 }
-
-.product-card img {
+.product-card img{
     max-width: 100%;
     max-height: 70%;
     object-fit: contain;
     margin-bottom: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
 
-.product-card-text {
-    flex-shrink: 0;
 }
 
 .product-card h3 {
-    margin: 10px 0;
-    font-size: 1.8em;
-    color: #333;
+    color: var(--mario-yellow);
+    text-shadow: 3px 3px var(--mario-black);
+    font-size: 3em; /* Tamanho do nome do produto */
+    margin: 20px 0;
 }
 
 .product-card p {
-    font-size: 2em;
-    color: #fff;
-    background-color: #1a73e8;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
+    background-color: var(--mario-red);
+    color: var(--mario-white);
+    padding: 15px 30px;
+    border: 4px solid var(--mario-black);
+    border-radius: 15px;
+    font-size: 2.5em; /* Tamanho do preço */
     display: inline-block;
-    margin-top: 10px;
-    animation: pulse 2s infinite;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
+/* Seção de Personalização */
+.customization-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
 }
-
-#product-management, #customization {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-#product-form {
+.customization-column {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 25px;
 }
 
-#product-form input, #product-form button, .form-group input {
-    padding: 12px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-#product-form input:focus, .form-group input:focus {
-    outline: none;
-    border-color: #1a73e8;
-    box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
-}
-
-#product-form button {
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#product-form button:hover {
-    background-color: #155ab6;
-}
-
-#product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.product-list-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.customization-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: var(--mario-red);
+    border-bottom: 3px solid var(--mario-black);
+    padding-bottom: 5px;
     text-align: center;
 }
 
-.product-list-card img {
-    max-width: 100%;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-.product-list-card-info h4 {
-    margin: 0 0 5px 0;
-    font-size: 1.1em;
-    color: #333;
-}
-
-.product-list-card-info p {
-    margin: 0;
-    color: #1a73e8;
-    font-weight: bold;
-}
-
-.product-list-card-actions {
-    margin-top: 15px;
+.form-group {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
+#customization .form-group {
+    display: flex;
+    flex-direction: column; /* Organiza label e input verticalmente */
+    gap: 8px; /* Espaço entre label e input */
+    margin-bottom: 10px; /* Reduz o espaço inferior */
+}
 
-.product-list-card-actions button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 5px;
+.form-group label {
+    font-size: 0.9em;
+}
+
+.form-group input[type="color"],
+.form-group input[type="number"],
+.form-group input[type="file"] {
+    font-family: 'Press Start 2P', cursive;
+    padding: 8px;
+    border: 3px solid var(--mario-black);
+    border-radius: 8px;
+}
+
+/* Keep checkboxes from stretching to full width */
+#customization .form-group input[type="checkbox"] {
+    width: auto; /* Override the 100% width for other inputs */
+    align-self: flex-start; /* Align the checkbox to the left */
+}
+
+#reset-customization {
+    background-color: var(--mario-blue);
+    color: var(--mario-white);
+    border: 3px solid var(--mario-black);
+    padding: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    color: white;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
 }
 
-.product-list-card-actions .edit {
-    background-color: #ffc107;
-    color: #333;
+#reset-customization:hover {
+    background-color: #2a7ad0; /* Darker blue on hover */
 }
 
-.product-list-card-actions .edit:hover {
-    background-color: #e0a800;
+/* Oculta o carrossel na tela principal */
+#carousel-container {
+    display: none;
+}
+#carousel-container.fullscreen .product-card img {
+    max-height: 80vh; /* A imagem pode ocupar até 80% da altura da tela */
+    width: auto;
+    object-fit: contain; /* Garante que a imagem inteira seja visível */
+    flex-grow: 1; /* Permite que a imagem cresça */
+    margin-bottom: 20px;
+}
+#carousel-container.fullscreen .product-card h3 {
+    font-size: 2.5em;
 }
 
-.product-list-card-actions .delete {
-    background-color: #dc3545;
+#carousel-container.fullscreen .product-card p {
+    font-size: 2em;
 }
-
-.product-list-card-actions .delete:hover {
-    background-color: #c82333;
+.product-card-text {
+    flex-shrink: 0; /* Impede que o texto encolha */
+    margin-top: auto; /* Empurra o texto para baixo */
 }
-
-.product-list-card-actions .save {
-    background-color: #28a745;
-}
-
-.product-list-card-actions .save:hover {
-    background-color: #218838;
-}
-
-.product-list-card-actions .cancel {
-    background-color: #6c757d;
-}
-
-.product-list-card-actions .cancel:hover {
-    background-color: #5a6268;
-}
-
 .product-list-card .edit-name,
 .product-list-card .edit-price {
     width: 80%;
     padding: 5px;
     margin-bottom: 5px;
 }
-
 .product-list-card small {
     margin-top: 10px;
     font-size: 0.8em;
     color: #666;
 }
-
 #product-list .product-item {
     display: flex;
     justify-content: space-between;
@@ -337,55 +392,35 @@ body.fullscreen-active .title-container {
     padding: 12px 0;
     border-bottom: 1px solid #eee;
 }
-
-#product-list .product-item:last-child {
-    border-bottom: none;
+.edit, .delete, .save, .cancel {
+    font-family: 'Press Start 2P', cursive;
 }
 
-#product-list .product-item span {
-    font-size: 1.1em;
+/* In-Card Editing Styles */
+.product-list-card .edit-view {
+    display: none;
 }
 
-#product-list .product-item button {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    margin-left: 5px;
+.product-list-card.editing .edit-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
 }
 
-.edit {
-    background-color: #ffc107;
-    color: #333;
+.product-list-card.editing .view {
+    display: none;
 }
 
-.edit:hover {
-    background-color: #e0a800;
-}
-
-.delete {
-    background-color: #dc3545;
-    color: white;
-}
-
-.delete:hover {
-    background-color: #c82333;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-}
-
-.form-group input {
-    width: 100%;
+.product-list-card .edit-name,
+.product-list-card .edit-price {
+    width: 90%;
     padding: 8px;
-    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    border: 3px solid var(--mario-black);
+    border-radius: 8px;
+    background-color: var(--mario-white);
+    text-align: center;
+    margin: 0 auto;
 }
